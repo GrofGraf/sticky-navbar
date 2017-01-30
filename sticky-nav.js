@@ -1,6 +1,6 @@
 var navbar = document.getElementById("sticky-navbar");
 var lastPosition = window.pageYOffset;
-window.onscroll = function(){
+document.addEventListener("scroll", function(){
 	var top = navbar.getBoundingClientRect().top;
 	if(lastPosition > window.pageYOffset){
 		if(top + (lastPosition - window.pageYOffset) < 0){
@@ -17,4 +17,4 @@ window.onscroll = function(){
 		}
 	}
 	lastPosition = window.pageYOffset;
-}
+});
