@@ -1,6 +1,9 @@
 var navbar = document.getElementById("sticky-navbar");
 var lastPosition = window.pageYOffset;
-document.addEventListener("scroll", function(){
+document.addEventListener("scroll", navbarScroll);
+document.addEventListener("touchmove", navbarScroll);
+
+function navbarScroll(){
 	var top = navbar.getBoundingClientRect().top;
 	if(lastPosition > window.pageYOffset){
 		if(top + (lastPosition - window.pageYOffset) < 0){
@@ -8,7 +11,6 @@ document.addEventListener("scroll", function(){
 		}else{
 			navbar.style.top = 0;
 		}
-		console.log("scroll top");
 	}else{
 		if(top + (lastPosition - window.pageYOffset) > -60){
 			navbar.style.top = top + (lastPosition - window.pageYOffset)
@@ -17,4 +19,4 @@ document.addEventListener("scroll", function(){
 		}
 	}
 	lastPosition = window.pageYOffset;
-});
+}
